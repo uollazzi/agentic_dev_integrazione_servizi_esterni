@@ -15,6 +15,7 @@ def get_users():
             return response.status_code, data_users
         else:
             return response.status_code, []
+
     except Exception as e:
         print(e)
         return response.status_code, []
