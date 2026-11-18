@@ -1,5 +1,9 @@
 import json_placeholder
 import json_openweather
+import json_tavily
+from dotenv import load_dotenv
+
+load_dotenv()
 
 r = json_placeholder.get_users()
 
@@ -18,3 +22,10 @@ if forecast:
             f"{m.main.temp:.1f} °C",
             m.weather[0].description,
         )
+else:
+    print("Dati non disponibili")
+
+
+search_result = json_tavily.search("Cosa fa Elon Musk?")
+for r in search_result.results:
+    print(f"- {r.title}")
